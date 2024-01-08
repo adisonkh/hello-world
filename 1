@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghb-dev-helloworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ghb-dev-helloworld
+  template:
+    metadata:
+      labels:
+        app: ghb-dev-helloworld
+    spec:
+      containers:
+      - name: ghb-dev-helloworld
+        image: localhost:8080/d-faces/hello-world:1.0.0
+        imagePullPolicy: Always
+        env:
+        - name: SERVICE_VERSION
+          value: 'v1'
+        imagePullSecrets:
+        - name: ghb-dev-registry-secret
