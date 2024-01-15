@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ghb-dev-helloworld
+  name: ghb-service
 spec:
   type: NodePort
   ports:
-  - name: http
-    port: 8090
-    nodePort: 30001
+  - name: node
+    port: {{ .Values.containerPort }}
+    nodePort: {{ .Values.nodePort }}
     protocol: TCP
   selector:
     app: ghb-dev-helloworld

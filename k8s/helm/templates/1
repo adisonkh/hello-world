@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghb-deployment
+  labels:
+    app: ghb-app-helloworld
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: ghb-app-helloworld
+  template:
+    metadata:
+      labels:
+        app: ghb-app-helloworld
+    spec:
+      containers:
+      - name: ghb-app-helloworld
+        image: {{ .Values.image.url }}/hello-world:1.0.2
+        imagePullPolicy: Always
+        env:
+        - name: SERVICE_VERSION
+          value: 'v1'
+      imagePullSecrets:
+      - name: ghb-dev-registry-secret

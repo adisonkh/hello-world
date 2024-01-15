@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM localhost/d-faces/node:18-alpine
 WORKDIR /app
 COPY . .
 RUN yarn install --production
