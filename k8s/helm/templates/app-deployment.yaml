@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ghb-dev-deployment
+  name: ghb-deployment
   labels:
     app: ghb-app-helloworld
 spec:

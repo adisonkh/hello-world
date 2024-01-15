@@ -1,4 +1,4 @@
-apiVersion: v3.13.0
+apiVersion: v1
 description: Hello-World Project
 name: hello-world
 version: 1.0.2
