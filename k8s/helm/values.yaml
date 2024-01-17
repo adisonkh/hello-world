@@ -1,5 +1,6 @@
 replicas: 3
-containerPort: 8090
-nodePort: 30004
+servicePort: 8040 
+nodePort: 8090
+targetPort: 30010
 image:
   url: 10.104.101.71/d-faces

@@ -3,11 +3,15 @@ kind: Service
 metadata:
   name: ghb-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - name: node
-    port: {{ .Values.containerPort }}
-    nodePort: {{ .Values.nodePort }}
+  - name: http
+    port: {{ .Values.servicePort }}
+    targetPort: {{ .Values.targetPort }}
     protocol: TCP
   selector:
-    app: ghb-dev-helloworld
+    app: ghb-app-helloworld
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.104.101.71

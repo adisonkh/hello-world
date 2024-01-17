@@ -16,10 +16,12 @@ spec:
     spec:
       containers:
       - name: ghb-app-helloworld
-        image: {{ .Values.image.url }}/hello-world:1.0.2
+        image: {{ .Values.image.url }}/hello-world:1.0.6
         imagePullPolicy: Always
         env:
         - name: SERVICE_VERSION
           value: 'v1'
+        ports:
+        - containerPort: 30010
       imagePullSecrets:
       - name: ghb-dev-registry-secret
